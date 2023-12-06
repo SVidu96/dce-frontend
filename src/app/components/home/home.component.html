@@ -1,0 +1,35 @@
+<div class="container-fluid mt-5">
+  <div class="container d-flex align-items-center flex-column border">
+    <h1>DCE - Monty Hall Simulation</h1>
+    <h3>Please enter the number of games and the strategy</h3>
+
+    <form class="form-group" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+      <fieldset [disabled]="isLoading">
+        <div class="mt-3">
+          <label><b>No of games:</b></label>
+          <input class="form-control" type="number" min="0" formControlName="gameCount">
+          <p *ngIf="isGameCountError" class="text-danger"><small>* Enter a valid number</small></p>
+        </div>
+        <div class="mt-3">
+          <b>Strategy:</b>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="1" formControlName="gameMode">
+            <label class="form-check-label">Change the door</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" value="0" formControlName="gameMode">
+            <label class="form-check-label">Do not change the door</label>
+          </div>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto mt-3">
+          <button class="btn btn-primary" type="submit" [disabled]="isLoading">Simulate</button>
+        </div>
+      </fieldset>
+    </form>
+    <div class="mt-3">
+      <p class="text-primary" *ngIf="!isLoading && !isResponseError">Chance of winning : {{winningChance}}%</p>
+      <p class="text-primary" *ngIf="isLoading">Calculating...</p>
+      <p class="text-danger" *ngIf="isResponseError">Error occured while calculating. Please try again.</p>
+    </div>
+  </div>
+</div>
