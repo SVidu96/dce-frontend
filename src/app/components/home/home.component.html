@@ -3,7 +3,7 @@
     <h1>DCE - Monty Hall Simulation</h1>
     <h3>Please enter the number of games and the strategy</h3>
 
-    <form class="form-group" [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+    <form class="form-group" [formGroup]="gameForm" (ngSubmit)="onSubmit(gameForm)">
       <fieldset [disabled]="isLoading">
         <div class="mt-3">
           <label><b>No of games:</b></label>

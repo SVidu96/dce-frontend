@@ -8,7 +8,7 @@ import { MontyHallService } from '../../services/monty-hall.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  myForm!: FormGroup;
+  gameForm!: FormGroup;
   isGameCountError = false;
   winningChance = 0;
   isLoading = false
@@ -19,16 +19,16 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.myForm = this.formBuilder.group({
-      gameCount: ['0', Validators.required],
+    this.gameForm = this.formBuilder.group({
+      gameCount: [0, Validators.required],
       gameMode: ['1', Validators.required]
     });
   }
 
   onSubmit(form: FormGroup) {
     this.winningChance = 0;
-    const gameCount = form.value.gameCount;
-    const gameMode = form.value.gameMode;
+    const gameCount = +form.value.gameCount;
+    const gameMode = +form.value.gameMode;
 
     if (gameCount === 0 || !form.valid) {
       this.isGameCountError = true;
