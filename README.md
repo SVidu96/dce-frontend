@@ -1,6 +1,12 @@
+#Demo
+
+https://github.com/SVidu96/dce-frontend/assets/50464390/bee8e3c2-955a-48ac-aca9-017fd1e71686
+
 # Frontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.10.
+Node: 18.17.1
+Package Manager: npm 9.6.7
 
 ## Development server
 
